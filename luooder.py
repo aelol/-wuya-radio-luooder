@@ -34,10 +34,8 @@ def get_song_list(volumn):
     print(bcolors.OKBLUE + "song list of volumn {}:".format(volumn) + bcolors.ENDC)
     result = []
     for song in songs:
-        meta = {}
-        meta['name'] = song.find('p', 'name').getText()
-        meta['artist'] = song.find('p', 'artist').getText()[7:]
-        meta['album'] = song.find('p', 'album').getText()[6:]
+        meta = {'name': song.find('p', 'name').getText(), 'artist': song.find('p', 'artist').getText()[7:],
+                'album': song.find('p', 'album').getText()[6:]}
         print(bcolors.UNDERLINE + '{} by {}'.format(meta['name'], meta['artist']) + bcolors.ENDC)
         result.append(meta)
 
@@ -62,8 +60,7 @@ def download_songs_list(volumn):
         f.close()
 
 
-####download songs via requests.get(for url in txt.readlines)
-
+# download songs via requests.get(for url in txt.readlines)
 
 if __name__ == '__main__':
 
